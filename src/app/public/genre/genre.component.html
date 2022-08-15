@@ -1,0 +1,21 @@
+<div class="container" style="background-color: white;">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let g of genres; index as i">
+                <th scope="row">{{i+1}}</th>
+                <td>{{g.id}}</td>
+                <td><a [routerLink]="'/Genre-Movies/' + g.id">{{g.name}}</a></td>
+                <td><input type="button" class="btn btn-link" value="Add" [routerLink]="'/Add-Genre'"/></td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>

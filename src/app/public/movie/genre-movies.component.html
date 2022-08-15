@@ -1,0 +1,17 @@
+<div class="rounded">
+    <div class="container-fluid">
+        <button [disabled]="!prevPage" class="btn btn-primary" (click)="getPreviousPage(movies.pageIndex -1)">Previous</button>
+        <button [disabled]="!nextPage" class="btn btn-primary" style="margin-left:1em;" (click)="getNextPage(movies.pageIndex +1)">Next</button>
+        <div class="row">
+            <div class="col-xl-2 col-sm-4 col-lg-3 col-6" *ngFor="let movie of movies.data">
+                <div class="card mb-4">
+                    <!--these are called tag helpers-->
+                <a [routerLink]="'/Movie-Details/' + movie.id">
+                    <img src="{{movie.posterUrl}}" class="img-fluid" alt="{{movie.title}}" />
+                </a>
+                </div>  
+            </div>
+        </div>
+
+    </div>
+</div>

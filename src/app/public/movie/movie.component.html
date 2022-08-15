@@ -1,0 +1,16 @@
+<!--
+<h1>Two Way Binding Example</h1>
+<input type="text" [(ngModel)] = "x">
+{{x}}-->
+
+<div class="rounded">
+    <div class="container-fluid">
+        <div class="row">
+            <div class ="col-6 col-lg-3 col-sm-4 col-xl-2" *ngFor="let movie of movies">
+                <div class="card mb-4" >
+                    <img [routerLink]="'/Movie-Details/' + movie.id" src="{{movie.posterUrl}}" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

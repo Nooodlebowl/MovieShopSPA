@@ -1,0 +1,11 @@
+<div class="rounded">
+    <div class="container-fluid">
+        <div class="row">
+            <div class ="col-6 col-lg-3 col-sm-4 col-xl-2" *ngFor="let movie of movies">
+                <div class="card mb-4" >
+                    <img [routerLink]="'/Movie-Details/' + movie.movieId" src="{{movie.movie.posterUrl}}" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

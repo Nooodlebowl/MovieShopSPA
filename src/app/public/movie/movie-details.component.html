@@ -1,0 +1,72 @@
+<div class="container-fluid">
+    <div class="row bg-image"
+        style="background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url({{movie.backdropUrl}}); background-size:cover; background-repeat: no-repeat;">
+        <div class="col-4">
+            <img src="{{movie.posterUrl}}" class="img-fluid" alt="{{movie.title}}" width="70%" style="float:right;" />
+        </div>
+        <div class="col-4" style="margin-left:4em;">
+            <h2 class="text-white">
+                {{movie.title}}
+            </h2>
+            <div style="font-size: 10px; color:lightgray;">
+                {{movie.tagline}}
+            </div>
+            <div style="font-size: 12px;"><span style="float:left; color:lightgray;">{{movie.runTime}} m</span>
+                <div *ngFor="let genre of movie.genres">
+                    <span style="float:right; margin:2.5px;" class="badge bg-secondary">{{genre.name}}</span>
+                </div>
+            </div>
+            <br />
+            <div style="font-size: 12px;" class="text-white">
+                <span>{{movie.overview}}</span>
+            </div>
+        </div>
+        <div class="col-3">
+            <!--
+				<partial name="_ReviewButtonPartial" />
+				<partial name="_BuyOrWatchMovie" />
+				<partial name="_FavoriteMovie"/>
+                -->
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <h4>Movie Facts</h4>
+                </li>
+                <li class="list-group-item">Release Date <span class="badge bg-secondary">{{movie.releaseDate}}</span>
+                </li>
+                <li class="list-group-item">Run Time <span class="badge bg-secondary">{{movie.runTime}} m</span></li>
+                <li class="list-group-item">Box office <span class="badge bg-secondary">${{movie.revenue}}</span></li>
+                <li class="list-group-item">Budget <span class="badge bg-secondary">${{movie.budget}}</span></li>
+                <li class="list-group-item"><a href="{{movie.imdbUrl}}">Imdb</a></li>
+                <li class="list-group-item"><a href="{{movie.tmdbUrl}}">Tbmd</a></li>
+            </ul>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <h4>Trailers</h4>
+                </li>
+                <div *ngFor="let Trailer of movie.trailers">
+                <li class="list-group-item"><a href="{{Trailer.trailerUrl}}">Trailer</a></li>
+                </div>
+
+            </ul>
+        </div>
+        <div class="col-4" style="margin-left:4em;">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <h4>Cast</h4>
+                </li>
+                <div *ngFor="let Casts of movie.casts">
+                <ul class="list-group list-group-horizontal">
+                    <li class="list-group-item"><a [routerLink]="'/Cast-Details/'+ Casts.id"><img src="{{Casts.profilePath}}" width="30px" [routerLink]="'/cast-details/'+ Casts.id"/></a></li>
+                    <li class="list-group-item">{{Casts.name}}</li>
+                    <li class="list-group-item">{{Casts.character}}</li>
+                </ul>
+                </div>
+            </ul>
+        </div>
+    </div>
+</div>
